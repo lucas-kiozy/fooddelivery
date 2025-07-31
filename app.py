@@ -6,4 +6,4 @@ print('3. Ativar restaurante')
 print('4. Sair')
 
 opcao_escolhida = input('\nEscolha uma opção: ')
-print('\nVocê escolheu a opção:', opcao_escolhida)
+print(f'\nVocê escolheu a opção: {opcao_escolhida}' )
