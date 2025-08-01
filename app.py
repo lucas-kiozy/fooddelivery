@@ -18,21 +18,22 @@ def finalizar_programa():
 def escolher_opcao():
       opcao_escolhida = int(input('\nEscolha uma opção: '))
       print(f'\nVocê escolheu a opção: {opcao_escolhida}\n' )
-      if opcao_escolhida == 1:
-            print('Cadastrar Restaurante')
-            nome_restaurante = input('Digite o nome do restaurante: ')
-            print(f'\nRestaurante {nome_restaurante} cadastrado com sucesso!')
-      elif opcao_escolhida == 2:
-            print('Listar Restaurantes')
-      elif opcao_escolhida == 3:
-            print('Ativar Restaurante')
-            nome_restaurante = input('Digite o nome do restaurante a ser ativado: ')
-            print(f'\nRestaurante {nome_restaurante} ativado com sucesso!')
-      elif opcao_escolhida == 4:
-            finalizar_programa()
-      else:
-            print('Opção inválida. Encerrando o programa.')
-            finalizar_programa()
+      match opcao_escolhida:
+            case 1:
+                  print('Cadastrar Restaurante')
+                  nome_restaurante = input('Digite o nome do restaurante: ')
+                  print(f'\nRestaurante {nome_restaurante} cadastrado com sucesso!')
+            case 2:
+                  print('Listar Restaurantes')
+            case 3:
+                  print('Ativar Restaurante')
+                  nome_restaurante = input('Digite o nome do restaurante a ser ativado: ')
+                  print(f'\nRestaurante {nome_restaurante} ativado com sucesso!')
+            case 4:
+                  finalizar_programa()
+            case _:
+                  print('Opção inválida. Encerrando o programa.')
+                  finalizar_programa()
 
 def main():
       exibir_nome_do_programa()
