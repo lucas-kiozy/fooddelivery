@@ -1,5 +1,7 @@
 import os
 
+restaurantes = ['Restaurante A', 'Restaurante B', 'Restaurante C']
+
 def exibir_nome_do_programa():
       print("Sabor Express - Sistema de Entrega de Alimentos\n")
 
@@ -9,11 +11,18 @@ def exibir_menu():
       print('3. Ativar restaurante')
       print('4. Sair')
 
+def voltar_ao_menu_principal():
+      input('\nPressione Enter para voltar ao menu principal...')
+      os.system('cls')
+      main()
+
+def exibir_subtitulo(texto):
+      os.system('cls')
+      print(f'*** {texto} ***\n')
 
 def finalizar_programa():
-      os.system('cls')
-      print('Encerrando o programa. Obrigado por usar o Sabor Express!')
-      print('...\n')
+      exibir_subtitulo('Finalizando o programa')
+      print('Obrigado por usar o Sabor Express!')
 
 def escolher_opcao():
       try:
@@ -21,11 +30,9 @@ def escolher_opcao():
             print(f'\nVocê escolheu a opção: {opcao_escolhida}\n' )
             match opcao_escolhida:
                   case 1:
-                        print('Cadastrar Restaurante')
-                        nome_restaurante = input('Digite o nome do restaurante: ')
-                        print(f'\nRestaurante {nome_restaurante} cadastrado com sucesso!')
+                        cadastrar_restaurante()
                   case 2:
-                        print('Listar Restaurantes')
+                        listar_restaurantes()
                   case 3:
                         print('Ativar Restaurante')
                         nome_restaurante = input('Digite o nome do restaurante a ser ativado: ')
@@ -38,9 +45,21 @@ def escolher_opcao():
             opcao_invalida()
 
 def opcao_invalida():
-      print('Opção inválida. Por favor, escolha uma opção válida.\n')
-      main()
+      print('Opção inválida. Por favor, escolha uma opção válida.')
+      voltar_ao_menu_principal()
 
+def cadastrar_restaurante():
+      exibir_subtitulo('Cadastro de restaurante')
+      nome_restaurante = input('Digite o nome do restaurante: ')
+      restaurantes.append(nome_restaurante)
+      print(f'Restaurante {nome_restaurante} cadastrado com sucesso!')
+      voltar_ao_menu_principal()
+
+def listar_restaurantes():
+      exibir_subtitulo('Lista de Restaurantes')
+      for i, restaurante in enumerate(restaurantes, start=1):
+            print(f'{i}. {restaurante}')
+      voltar_ao_menu_principal()
 
 def main():
       exibir_nome_do_programa()
