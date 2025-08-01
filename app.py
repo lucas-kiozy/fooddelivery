@@ -16,24 +16,31 @@ def finalizar_programa():
       print('...\n')
 
 def escolher_opcao():
-      opcao_escolhida = int(input('\nEscolha uma opção: '))
-      print(f'\nVocê escolheu a opção: {opcao_escolhida}\n' )
-      match opcao_escolhida:
-            case 1:
-                  print('Cadastrar Restaurante')
-                  nome_restaurante = input('Digite o nome do restaurante: ')
-                  print(f'\nRestaurante {nome_restaurante} cadastrado com sucesso!')
-            case 2:
-                  print('Listar Restaurantes')
-            case 3:
-                  print('Ativar Restaurante')
-                  nome_restaurante = input('Digite o nome do restaurante a ser ativado: ')
-                  print(f'\nRestaurante {nome_restaurante} ativado com sucesso!')
-            case 4:
-                  finalizar_programa()
-            case _:
-                  print('Opção inválida. Encerrando o programa.')
-                  finalizar_programa()
+      try:
+            opcao_escolhida = int(input('\nEscolha uma opção: '))
+            print(f'\nVocê escolheu a opção: {opcao_escolhida}\n' )
+            match opcao_escolhida:
+                  case 1:
+                        print('Cadastrar Restaurante')
+                        nome_restaurante = input('Digite o nome do restaurante: ')
+                        print(f'\nRestaurante {nome_restaurante} cadastrado com sucesso!')
+                  case 2:
+                        print('Listar Restaurantes')
+                  case 3:
+                        print('Ativar Restaurante')
+                        nome_restaurante = input('Digite o nome do restaurante a ser ativado: ')
+                        print(f'\nRestaurante {nome_restaurante} ativado com sucesso!')
+                  case 4:
+                        finalizar_programa()
+                  case _:
+                        opcao_invalida()
+      except:
+            opcao_invalida()
+
+def opcao_invalida():
+      print('Opção inválida. Por favor, escolha uma opção válida.\n')
+      main()
+
 
 def main():
       exibir_nome_do_programa()
