@@ -1,6 +1,7 @@
 import os
 
 restaurantes = ['Restaurante A', 'Restaurante B', 'Restaurante C']
+#Começar a trabalhar com dicionários
 
 def exibir_nome_do_programa():
       print("Sabor Express - Sistema de Entrega de Alimentos\n")
