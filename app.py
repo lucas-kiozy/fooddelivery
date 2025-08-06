@@ -20,12 +20,12 @@ def voltar_ao_menu_principal():
       main()
 
 def exibir_subtitulo(texto):
-      os.system('cls')
-      print(f'*** {texto} ***\n')
+      #os.system('cls')
+      print(f'\n*** {texto} ***\n')
 
 def finalizar_programa():
       exibir_subtitulo('Finalizando o programa')
-      print('Obrigado por usar o Sabor Express!')
+      print('Obrigado por usar o Sabor Express!\n')
 
 def escolher_opcao():
       try:
@@ -36,10 +36,9 @@ def escolher_opcao():
                         cadastrar_restaurante()
                   case 2:
                         listar_restaurantes()
+                        voltar_ao_menu_principal()
                   case 3:
-                        print('Ativar Restaurante')
-                        nome_restaurante = input('Digite o nome do restaurante a ser ativado: ')
-                        print(f'\nRestaurante {nome_restaurante} ativado com sucesso!')
+                        alternar_estado_restaurante()
                   case 4:
                         finalizar_programa()
                   case _:
@@ -71,6 +70,20 @@ def listar_restaurantes():
             categoria_restaurante = restaurante['categoria']
             ativo_restaurante = 'Ativo' if restaurante['ativo'] else 'Inativo'
             print(f'{i}. {nome_restaurante} | Categoria: {categoria_restaurante} | Status: {ativo_restaurante}')
+
+def alternar_estado_restaurante():
+      listar_restaurantes()
+      exibir_subtitulo('Ativar/Desativar Restaurante')
+      numero_restaurante = int(input('\nDigite o número do restaurante que deseja ativar/desativar: '))
+      if 1 <= numero_restaurante <= len(restaurantes):
+            restaurante = restaurantes[numero_restaurante - 1]
+            restaurante['ativo'] = not restaurante['ativo']
+
+            if restaurante['ativo'] :
+                  status = 'Ativado' 
+            else:
+                  status = 'Desativado'
+            print(f'\nRestaurante {restaurante["nome"]} foi {status} com sucesso!')
       voltar_ao_menu_principal()
 
 def main():
