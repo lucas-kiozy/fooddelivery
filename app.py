@@ -1,7 +1,9 @@
 import os
 
-restaurantes = ['Restaurante A', 'Restaurante B', 'Restaurante C']
-#Começar a trabalhar com dicionários
+restaurantes = [{'nome': 'Restaurante A', 'categoria': 'Italiana', 'ativo': False}, 
+                {'nome': 'Restaurante B', 'categoria': 'Japonesa', 'ativo': False}, 
+                {'nome': 'Restaurante C', 'categoria': 'Brasileira', 'ativo': True}
+                ]
 
 def exibir_nome_do_programa():
       print("Sabor Express - Sistema de Entrega de Alimentos\n")
@@ -59,7 +61,10 @@ def cadastrar_restaurante():
 def listar_restaurantes():
       exibir_subtitulo('Lista de Restaurantes')
       for i, restaurante in enumerate(restaurantes, start=1):
-            print(f'{i}. {restaurante}')
+            nome_restaurante = restaurante['nome']
+            categoria_restaurante = restaurante['categoria']
+            ativo_restaurante = 'Ativo' if restaurante['ativo'] else 'Inativo'
+            print(f'{i}. {nome_restaurante} | Categoria: {categoria_restaurante} | Status: {ativo_restaurante}')
       voltar_ao_menu_principal()
 
 def main():
