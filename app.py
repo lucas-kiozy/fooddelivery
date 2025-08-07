@@ -65,11 +65,12 @@ def cadastrar_restaurante():
 
 def listar_restaurantes():
       exibir_subtitulo('Lista de Restaurantes')
+      print(f'{'Nome do restaurante'.ljust(22)} | {'Categoria'.ljust(15)} | Status')
       for i, restaurante in enumerate(restaurantes, start=1):
             nome_restaurante = restaurante['nome']
             categoria_restaurante = restaurante['categoria']
             ativo_restaurante = 'Ativo' if restaurante['ativo'] else 'Inativo'
-            print(f'{i}. {nome_restaurante} | Categoria: {categoria_restaurante} | Status: {ativo_restaurante}')
+            print(f'{i}. {nome_restaurante.ljust(19)} | {categoria_restaurante.ljust(15)} | {ativo_restaurante}')
 
 def alternar_estado_restaurante():
       listar_restaurantes()
