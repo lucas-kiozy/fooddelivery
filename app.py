@@ -51,7 +51,16 @@ def opcao_invalida():
       voltar_ao_menu_principal()
 
 def cadastrar_restaurante():
-      '''Essa função é responsável por cadastrar um novo restaurante.'''
+      '''Essa função é responsável por cadastrar um novo restaurante.
+      
+      Inputs:
+      - nome_restaurante: Nome do restaurante a ser cadastrado.
+      - categoria: Categoria do restaurante a ser cadastrada.
+
+      Outputs:
+      - dados_restaurante: Dicionário contendo os dados do restaurante cadastrado.
+      - restaurantes: Lista atualizada com o novo restaurante adicionado.
+      '''
       exibir_subtitulo('Cadastro de restaurante')
       nome_restaurante = input('Digite o nome do restaurante: ')
       categoria = input(f'Digite a categoria do restaurante {nome_restaurante}:')
@@ -65,7 +74,10 @@ def cadastrar_restaurante():
       voltar_ao_menu_principal()
 
 def listar_restaurantes():
-      '''Essa função é responsável por listar os restaurantes cadastrados.'''
+      '''Essa função é responsável por listar os restaurantes cadastrados.
+      
+      Outputs:
+      - restaurantes: Lista de dicionários contendo os dados dos restaurantes cadastrados.'''
       exibir_subtitulo('Lista de Restaurantes')
       print(f'{'Nome do restaurante'.ljust(22)} | {'Categoria'.ljust(15)} | Status')
       for i, restaurante in enumerate(restaurantes, start=1):
@@ -75,7 +87,15 @@ def listar_restaurantes():
             print(f'{i}. {nome_restaurante.ljust(19)} | {categoria_restaurante.ljust(15)} | {ativo_restaurante}')
 
 def alternar_estado_restaurante():
-      '''Essa função é responsável por ativar ou desativar um restaurante, alternando seu estado atual.'''
+      '''Essa função é responsável por ativar ou desativar um restaurante, alternando seu estado atual.
+      
+      Inputs:
+      - numero_restaurante: Número do restaurante a ser ativado ou desativado, escolhido pelo usuário.
+      
+      Outputs:
+      - restaurante: Dicionário do restaurante cujo estado foi alterado.
+      - status: String indicando o novo estado do restaurante (Ativado ou Desativado).
+      '''
       listar_restaurantes()
       exibir_subtitulo('Ativar/Desativar Restaurante')
       numero_restaurante = int(input('\nDigite o número do restaurante que deseja ativar/desativar: '))
