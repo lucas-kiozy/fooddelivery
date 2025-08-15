@@ -51,6 +51,7 @@ def opcao_invalida():
       voltar_ao_menu_principal()
 
 def cadastrar_restaurante():
+      '''Essa função é responsável por cadastrar um novo restaurante.'''
       exibir_subtitulo('Cadastro de restaurante')
       nome_restaurante = input('Digite o nome do restaurante: ')
       categoria = input(f'Digite a categoria do restaurante {nome_restaurante}:')
@@ -64,6 +65,7 @@ def cadastrar_restaurante():
       voltar_ao_menu_principal()
 
 def listar_restaurantes():
+      '''Essa função é responsável por listar os restaurantes cadastrados.'''
       exibir_subtitulo('Lista de Restaurantes')
       print(f'{'Nome do restaurante'.ljust(22)} | {'Categoria'.ljust(15)} | Status')
       for i, restaurante in enumerate(restaurantes, start=1):
@@ -73,6 +75,7 @@ def listar_restaurantes():
             print(f'{i}. {nome_restaurante.ljust(19)} | {categoria_restaurante.ljust(15)} | {ativo_restaurante}')
 
 def alternar_estado_restaurante():
+      '''Essa função é responsável por ativar ou desativar um restaurante, alternando seu estado atual.'''
       listar_restaurantes()
       exibir_subtitulo('Ativar/Desativar Restaurante')
       numero_restaurante = int(input('\nDigite o número do restaurante que deseja ativar/desativar: '))
