@@ -6,28 +6,48 @@ restaurantes = [{'nome': 'Restaurante A', 'categoria': 'Italiana', 'ativo': Fals
                 ]
 
 def exibir_nome_do_programa():
+      '''Essa função exibe o nome do programa no console.'''
       print("Sabor Express - Sistema de Entrega de Alimentos\n")
 
 def exibir_menu():
+      '''Essa função exibe o menu principal do programa, apresentando as 4 opções disponíveis para o usuário.'''
       print('1. Cadastrar restaurante')
       print('2. Listar restaurantes')
       print('3. Ativar restaurante')
       print('4. Sair')
 
 def voltar_ao_menu_principal():
+      '''Essa função aguarda o usuário pressionar Enter para voltar ao menu principal e limpa a tela do console.'''
       input('\nPressione Enter para voltar ao menu principal...')
       os.system('cls')
       main()
 
 def exibir_subtitulo(texto):
+      '''Essa função exibe um subtítulo formatado no console.
+      
+      Inputs:
+      - texto: String que será exibida como subtítulo.
+      Outputs:
+      - Exibe o subtítulo formatado no console.
+      '''
+      os.system('cls')
       #os.system('cls')
       print(f'\n*** {texto} ***\n')
 
 def finalizar_programa():
+      '''Essa função exibe uma mensagem de finalização do programa e encerra a execução.'''
       exibir_subtitulo('Finalizando o programa')
       print('Obrigado por usar o Sabor Express!\n')
 
 def escolher_opcao():
+      '''Essa função solicita ao usuário que escolha uma opção do menu e executa a ação correspondente.
+      
+      Inputs:
+      - opcao_escolhida: Número da opção escolhida pelo usuário.
+      Outputs:
+      - Executa a ação correspondente à opção escolhida, como cadastrar restaurante, listar restaurantes, ativar/desativar restaurante ou finalizar o programa.
+      '''
+      exibir_menu()
       try:
             opcao_escolhida = int(input('\nEscolha uma opção: '))
             print(f'\nVocê escolheu a opção: {opcao_escolhida}\n' )
